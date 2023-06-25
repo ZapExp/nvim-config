@@ -48,8 +48,11 @@ require('mini.basics').setup({
 })
 
 require('mini.bufremove').setup()
-vim.keymap.set('n', '<leader>bd', [[<cmd>lua require("mini.bufremove").delete(0, false)<CR>]], { desc = 'Delete Buffer' })
-vim.keymap.set('n', '<leader>bD', [[<cmd>lua require("mini.bufremove").delete(0, true)<CR>]], { desc = 'Delete Buffer (Force)' })
+vim.keymap.set('n', '<leader>bd', [[<cmd>lua require("mini.bufremove").delete(0, false)<CR>]], { desc = '[B]uffer [D]elete' })
+vim.keymap.set('n', '<leader>bD', [[<cmd>lua require("mini.bufremove").delete(0, true)<CR>]], { desc = '[B]uffer [D]elete (Force)' })
+-- Other buffer options
+vim.keymap.set('n', '<leader>v', '<cmd>vsplit<CR>', { desc = 'Split Buffer [V]ertically' })
+vim.keymap.set('n', '<leader>h', '<cmd>split<CR>', { desc = 'Split Buffer [H]orizontally' })
 
 -- Comment things
 require('mini.comment').setup({
@@ -57,7 +60,7 @@ require('mini.comment').setup({
   mappings = {
     -- Toggle comment (like `gcip` - comment inner paragraph) for both
     -- Normal and Visual modes
-    comment = '',
+    comment = '<leader>/',
 
     -- Toggle comment on current line
     comment_line = '<leader>/',
@@ -66,6 +69,7 @@ require('mini.comment').setup({
     textobject = '',
   },
 })
+
 
 -- Underline in current word
 require('mini.cursorword').setup()

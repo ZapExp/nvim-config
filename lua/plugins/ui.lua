@@ -17,14 +17,34 @@ return {
 					fidget = true,
 					cmp = true,
 					nvimtree = true,
-					telescope = true,
+					-- telescope = true,
+					telescope = {
+						enabled = true,
+						style = 'classic'
+					}
 				},
 			}
 			vim.cmd.colorscheme 'catppuccin'
 		end,
 	},
 
-	{ 'folke/which-key.nvim',       opts = {} },
+	{
+		'folke/which-key.nvim',
+		config = function()
+			local wk = require('which-key')
+			wk.register({
+				b = { name = 'Buffer', },
+				g = { name = 'Git', },
+				h = { name = 'Harpoon', },
+				l = {
+					name = 'Lsp',
+					w = { name = 'Workspace' }
+				},
+				s = { name = 'Search', },
+				w = { name = 'Window', },
+			}, { prefix = '<leader>' })
+		end,
+	},
 
 	{ 'nvim-tree/nvim-web-devicons' },
 
