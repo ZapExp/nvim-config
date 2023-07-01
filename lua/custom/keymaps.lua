@@ -1,11 +1,11 @@
 -- Save with Ctrl+s
-vim.keymap.set('n', '<C-s>', ':w<cr>')
+vim.keymap.set("n", "<C-s>", ":w<cr>")
 
 -- Remove highlight of search with Esc
-vim.keymap.set('n', '<Esc>', ':noh<CR>')
+vim.keymap.set("n", "<Esc>", ":noh<CR>")
 
 -- Better J in normal
-vim.keymap.set('n', 'J', 'mmJ`m', { noremap = true })
+vim.keymap.set("n", "J", "mmJ`m", { noremap = true })
 
 -- Centered movements
 -- vim.keymap.set('n', '<C-u>', '<C-u>zz0')

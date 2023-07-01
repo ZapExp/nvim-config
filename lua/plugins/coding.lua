@@ -32,6 +32,33 @@ return {
 	},
 
 	{
+		'jose-elias-alvarez/null-ls.nvim',
+		event = { 'BufReadPost', 'BufNewFile' },
+		config = function()
+			require("config.null-ls")
+		end,
+	},
+
+	{
+		'jose-elias-alvarez/null-ls.nvim',
+		config = function()
+			local null_ls = require 'null-ls'
+
+			null_ls.setup {
+				sources = {
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.prettierd.with {
+						extra_args = {
+							'--single-attribute-per-line',
+						},
+					},
+					null_ls.builtins.formatting.rustywind,
+				},
+			}
+		end,
+	},
+
+	{
 		-- Highlight, edit, and navigate code
 		'nvim-treesitter/nvim-treesitter',
 		event = { 'BufReadPost', 'BufNewFile' },

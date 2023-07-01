@@ -1,11 +1,11 @@
 return {
 	{
-		'catppuccin/nvim',
-		name = 'catppuccin',
+		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
 		config = function()
-			require('catppuccin').setup {
-				flavour = 'macchiato', -- latte, frappe, macchiato, mocha
+			require("catppuccin").setup({
+				flavour = "macchiato", -- latte, frappe, macchiato, mocha
 				transparent_background = true,
 				integrations = {
 					gitsigns = true,
@@ -20,52 +20,52 @@ return {
 					-- telescope = true,
 					telescope = {
 						enabled = true,
-						style = 'classic'
-					}
+						style = "classic",
+					},
 				},
-			}
-			vim.cmd.colorscheme 'catppuccin'
+			})
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 
 	{
-		'folke/which-key.nvim',
+		"folke/which-key.nvim",
 		config = function()
-			local wk = require('which-key')
+			local wk = require("which-key")
 			wk.register({
-				b = { name = 'Buffer', },
-				g = { name = 'Git', },
-				h = { name = 'Harpoon', },
+				b = { name = "Buffer" },
+				g = { name = "Git" },
+				h = { name = "Harpoon" },
 				l = {
-					name = 'Lsp',
-					w = { name = 'Workspace' }
+					name = "Lsp",
+					w = { name = "Workspace" },
 				},
-				s = { name = 'Search', },
-				w = { name = 'Window', },
-			}, { prefix = '<leader>' })
+				s = { name = "Search" },
+				w = { name = "Window" },
+			}, { prefix = "<leader>" })
 		end,
 	},
 
-	{ 'nvim-tree/nvim-web-devicons' },
+	{ "nvim-tree/nvim-web-devicons" },
 
 	{
 		-- Adds git releated signs to the gutter, as well as utilities for managing changes
-		'lewis6991/gitsigns.nvim',
+		"lewis6991/gitsigns.nvim",
 		opts = {
 			-- See `:help gitsigns.txt`
 			signs = {
-				add = { text = '+' },
-				change = { text = '~' },
-				delete = { text = '_' },
-				topdelete = { text = '‾' },
-				changedelete = { text = '~' },
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
 			},
 		},
 	},
 
 	{
-		'j-hui/fidget.nvim',
-		tag = 'legacy',
+		"j-hui/fidget.nvim",
+		tag = "legacy",
 		opts = {
 			window = {
 				blend = 0,
@@ -74,97 +74,97 @@ return {
 	},
 
 	{
-		'nvim-lualine/lualine.nvim',
-		event = 'VeryLazy',
+		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
 		opts = function()
 			local icons = {
 				dap = {
-					Stopped = { '󰁕 ', 'DiagnosticWarn', 'DapStoppedLine' },
-					Breakpoint = ' ',
-					BreakpointCondition = ' ',
-					BreakpointRejected = { ' ', 'DiagnosticError' },
-					LogPoint = '.>',
+					Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+					Breakpoint = " ",
+					BreakpointCondition = " ",
+					BreakpointRejected = { " ", "DiagnosticError" },
+					LogPoint = ".>",
 				},
 				diagnostics = {
-					Error = ' ',
-					Warn = ' ',
-					Hint = ' ',
-					Info = ' ',
+					Error = " ",
+					Warn = " ",
+					Hint = " ",
+					Info = " ",
 				},
 				git = {
-					added = ' ',
-					modified = ' ',
-					removed = ' ',
+					added = " ",
+					modified = " ",
+					removed = " ",
 				},
 				kinds = {
-					Array = ' ',
-					Boolean = ' ',
-					Class = ' ',
-					Color = ' ',
-					Constant = ' ',
-					Constructor = ' ',
-					Copilot = ' ',
-					Enum = ' ',
-					EnumMember = ' ',
-					Event = ' ',
-					Field = ' ',
-					File = ' ',
-					Folder = ' ',
-					Function = ' ',
-					Interface = ' ',
-					Key = ' ',
-					Keyword = ' ',
-					Method = ' ',
-					Module = ' ',
-					Namespace = ' ',
-					Null = ' ',
-					Number = ' ',
-					Object = ' ',
-					Operator = ' ',
-					Package = ' ',
-					Property = ' ',
-					Reference = ' ',
-					Snippet = ' ',
-					String = ' ',
-					Struct = ' ',
-					Text = ' ',
-					TypeParameter = ' ',
-					Unit = ' ',
-					Value = ' ',
-					Variable = ' ',
+					Array = " ",
+					Boolean = " ",
+					Class = " ",
+					Color = " ",
+					Constant = " ",
+					Constructor = " ",
+					Copilot = " ",
+					Enum = " ",
+					EnumMember = " ",
+					Event = " ",
+					Field = " ",
+					File = " ",
+					Folder = " ",
+					Function = " ",
+					Interface = " ",
+					Key = " ",
+					Keyword = " ",
+					Method = " ",
+					Module = " ",
+					Namespace = " ",
+					Null = " ",
+					Number = " ",
+					Object = " ",
+					Operator = " ",
+					Package = " ",
+					Property = " ",
+					Reference = " ",
+					Snippet = " ",
+					String = " ",
+					Struct = " ",
+					Text = " ",
+					TypeParameter = " ",
+					Unit = " ",
+					Value = " ",
+					Variable = " ",
 				},
 			}
 
 			local fgf = function(name)
 				---@type {foreground?:number}?
-				local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name }) or
-						vim.api.nvim_get_hl_by_name(name, true)
+				local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name })
+					or vim.api.nvim_get_hl_by_name(name, true)
 				local fg = hl and hl.fg or hl.foreground
-				return fg and { fg = string.format('#%06x', fg) }
+				return fg and { fg = string.format("#%06x", fg) }
 			end
 
 			return {
 				options = {
-					theme = 'auto',
+					theme = "auto",
 					globalstatus = true,
-					disabled_filetypes = { statusline = { 'dashboard', 'alpha' } },
+					disabled_filetypes = { statusline = { "dashboard", "alpha" } },
 				},
 				sections = {
-					lualine_a = { 'mode' },
-					lualine_b = { 'branch' },
+					lualine_a = { "mode" },
+					lualine_b = { "branch" },
 					lualine_c = {
 						{
-							'filetype',
+							"filetype",
 							icon_only = true,
-							separator = '',
+							separator = "",
 							padding = {
 								left = 1,
 								right = 0,
 							},
 						},
-						{ 'filename', path = 1, symbols = { modified = '  ', readonly = '', unnamed = '' } },
+						{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
 						{
-							'diagnostics',
+							"diagnostics",
 							symbols = {
 								error = icons.diagnostics.Error,
 								warn = icons.diagnostics.Warn,
@@ -175,12 +175,12 @@ return {
 					},
 					lualine_x = {
 						{
-							require('lazy.status').updates,
-							cond = require('lazy.status').has_updates,
-							color = fgf 'Special',
+							require("lazy.status").updates,
+							cond = require("lazy.status").has_updates,
+							color = fgf("Special"),
 						},
 						{
-							'diff',
+							"diff",
 							symbols = {
 								added = icons.git.added,
 								modified = icons.git.modified,
@@ -190,22 +190,22 @@ return {
 					},
 					lualine_y = {
 						{
-							'progress',
-							separator = ' ',
+							"progress",
+							separator = " ",
 							padding = { left = 1, right = 0 },
 						},
 						{
-							'location',
+							"location",
 							padding = { left = 0, right = 1 },
 						},
 					},
 					lualine_z = {
 						function()
-							return ' ' .. os.date '%R'
+							return " " .. os.date("%R")
 						end,
 					},
 				},
-				extensions = { 'neo-tree', 'lazy' },
+				extensions = { "neo-tree", "lazy" },
 			}
 		end,
 		-- See `:help lualine.txt`
