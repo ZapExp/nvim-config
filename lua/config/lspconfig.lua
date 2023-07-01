@@ -62,7 +62,7 @@ local servers = {
 	-- gopls = {},
 	-- rust_analyzer = {},
 	-- pyright = {},
-	hls = {},
+	-- hls = {},
 	pylsp = {},
 	tsserver = {},
 	svelte = {},
@@ -102,3 +102,8 @@ mason_lspconfig.setup_handlers {
 		}
 	end,
 }
+
+require('lspconfig').hls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
