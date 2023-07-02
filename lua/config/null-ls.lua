@@ -20,6 +20,5 @@ null_ls.setup({
 			},
 		}),
 		null_ls.builtins.formatting.rustywind,
-		null_ls.builtins.formatting.sql_formatter,
 	},
 })
