@@ -61,8 +61,10 @@ vim.keymap.set(
 	{ desc = "[B]uffer [D]elete (Force)" }
 )
 -- Other buffer options
-vim.keymap.set("n", "<leader>v", "<cmd>vsplit<CR>", { desc = "Split Buffer [V]ertically" })
-vim.keymap.set("n", "<leader>h", "<cmd>split<CR>", { desc = "Split Buffer [H]orizontally" })
+vim.keymap.set("n", "<leader>bv", "<cmd>vsplit<CR>", { desc = "Split [B]uffer [V]ertically" })
+vim.keymap.set("n", "<leader>bh", "<cmd>split<CR>", { desc = "Split [B]uffer [H]orizontally" })
+
+vim.keymap.set("n", "<leader>bc", "<cmd>:q<CR>", { desc = "[B]uffer [C]lose" })
 
 -- Comment things
 require("mini.comment").setup({
