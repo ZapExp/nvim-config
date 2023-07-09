@@ -2,7 +2,9 @@
 require("mini.ai").setup()
 
 -- Animations
-require("mini.animate").setup()
+if not vim.g.neovide then
+	require("mini.animate").setup()
+end
 
 -- Basic options
 require("mini.basics").setup({
@@ -89,7 +91,7 @@ require("mini.cursorword").setup()
 require("mini.hipatterns").setup()
 
 -- Better f, F, t, T movements
-require("mini.jump").setup()
+-- require("mini.jump").setup()
 
 -- Move text lines with M-h, j, k, l
 require("mini.move").setup()

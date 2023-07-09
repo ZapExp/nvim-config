@@ -10,15 +10,19 @@
 -- }
 
 local null_ls = require("null-ls")
+local format = require("null-ls").builtins.formatting
 
 null_ls.setup({
 	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettierd.with({
+		format.stylua,
+		format.prettierd.with({
 			extra_args = {
 				"--single-attribute-per-line",
 			},
 		}),
-		null_ls.builtins.formatting.rustywind,
+		format.rustywind,
+		format.rustfmt.with({
+			extra_filetypes = { "rs" },
+		}),
 	},
 })

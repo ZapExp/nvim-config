@@ -105,3 +105,12 @@ require("lspconfig").hls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+
+--setup rust
+local rt = require("rust-tools")
+
+rt.setup({
+	server = {
+		on_attach = on_attach,
+	},
+})
