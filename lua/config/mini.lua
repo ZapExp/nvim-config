@@ -1,5 +1,5 @@
--- Extra text objects
-require("mini.ai").setup()
+-- -- Extra text objects
+-- require("mini.ai").setup()
 
 -- Animations
 if not vim.g.neovide then

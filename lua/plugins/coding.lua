@@ -54,24 +54,12 @@ return {
 		-- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects"
+		},
 		build = ":TSUpdate",
 		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"lua",
-					"tsx",
-					"typescript",
-					"javascript",
-					"svelte",
-					"html",
-					"css",
-					"vimdoc",
-					"vim",
-				},
-				auto_install = true,
-				highlight = { enable = true },
-				indent = { enable = true, disable = { "python" } },
-			})
+			require("config.treesitter")
 		end,
 	},
 }

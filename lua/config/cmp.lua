@@ -35,10 +35,13 @@ cmp.setup({
 			end
 		end),
 
+		--docs
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		-- ['<C-Space>'] = cmp.mapping.complete {
-		["<C-c>"] = cmp.mapping.complete({}),
+		-- ["<C-c>"] = cmp.mapping.complete({}),
+
+		-- completion
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
@@ -46,8 +49,6 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
 			else
 				fallback()
 			end
@@ -55,8 +56,6 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -65,8 +64,25 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = 'buffer',                 keyword_length = 3 },
-		{ name = 'luasnip',                keyword_length = 2 },
+		{ name = "buffer", keyword_length = 3 },
+		{ name = "luasnip", keyword_length = 2 },
 		{ name = "nvim_lsp_signature_help" },
 	},
 })
+
+-- Lua snip keymaps
+vim.keymap.set({ "i" }, "<C-e>", function()
+	luasnip.expand()
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+	luasnip.jump(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+	luasnip.jump(-1)
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-l>", function()
+	if luasnip.choice_active() then
+		luasnip.change_choice(1)
+	end
+end, { silent = true })

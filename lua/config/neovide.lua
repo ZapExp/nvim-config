@@ -9,4 +9,4 @@ vim.g.neovide_background_color = "#ffff00" .. alpha()
 vim.o.guifont = "FiraCode Nerd Font Mono:h12"
 
 -- Scroll
-vim.g.neovide_scroll_animation_length = 0.5
+vim.g.neovide_scroll_animation_length = 0.6
