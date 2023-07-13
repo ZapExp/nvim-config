@@ -11,6 +11,14 @@ return {
 	},
 
 	{
+		"mbbill/undotree",
+		lazy = true,
+		keys = {
+			{ "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTree" },
+		},
+	},
+
+	{
 		"mrjones2014/smart-splits.nvim",
 		keys = {
 			-- Move the cursor
