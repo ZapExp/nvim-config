@@ -21,8 +21,6 @@ null_ls.setup({
 			},
 		}),
 		format.rustywind,
-		format.rustfmt.with({
-			extra_filetypes = { "rs" },
-		}),
+		format.rustfmt,
 	},
 })

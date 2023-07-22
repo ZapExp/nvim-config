@@ -23,6 +23,11 @@ return {
 						style = "classic",
 					},
 				},
+				custom_highlights = function(colors)
+					return {
+						CmpBorder = { fg = colors.blue },
+					}
+				end,
 			})
 			vim.cmd.colorscheme("catppuccin")
 		end,
@@ -32,6 +37,11 @@ return {
 		"folke/which-key.nvim",
 		config = function()
 			local wk = require("which-key")
+			wk.setup({
+				window = {
+					border = "rounded",
+				},
+			})
 			wk.register({
 				b = { name = "Buffer" },
 				g = { name = "Git" },
@@ -139,7 +149,7 @@ return {
 			local fgf = function(name)
 				---@type {foreground?:number}?
 				local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name })
-						or vim.api.nvim_get_hl_by_name(name, true)
+					or vim.api.nvim_get_hl_by_name(name, true)
 				local fg = hl and hl.fg or hl.foreground
 				return fg and { fg = string.format("#%06x", fg) }
 			end

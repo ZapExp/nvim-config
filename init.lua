@@ -15,6 +15,10 @@ if vim.g.vscode then
 	require("lazy").setup("vscode-plugins")
 else
 	require("globals")
-	require("lazy").setup("plugins")
+	require("lazy").setup("plugins", {
+		ui = {
+			border = "rounded",
+		},
+	})
 	require("init")
 end
