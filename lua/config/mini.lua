@@ -3,7 +3,14 @@
 
 -- Animations
 if not vim.g.neovide then
-	require("mini.animate").setup()
+	require("mini.animate").setup({
+		open = {
+			enable = false,
+		},
+		close = {
+			enable = false,
+		},
+	})
 end
 
 -- Basic options
