@@ -51,11 +51,18 @@ return {
 	},
 
 	{
+		"windwp/nvim-ts-autotag",
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {},
+	},
+
+	{
 		-- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects"
+			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 		build = ":TSUpdate",
 		config = function()

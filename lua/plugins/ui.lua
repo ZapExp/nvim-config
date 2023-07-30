@@ -4,9 +4,11 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 		config = function()
+			---@diagnostic disable-next-line: missing-fields
 			require("catppuccin").setup({
 				flavour = "macchiato", -- latte, frappe, macchiato, mocha
 				transparent_background = not vim.g.neovide,
+				---@diagnostic disable-next-line: missing-fields
 				integrations = {
 					gitsigns = true,
 					mini = true,
@@ -30,6 +32,26 @@ return {
 				end,
 			})
 			vim.cmd.colorscheme("catppuccin")
+		end,
+	},
+
+	{
+		-- Add indentation guides even on blank lines
+		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufReadPost", "BufNewFile" },
+		-- Enable `lukas-reineke/indent-blankline.nvim`
+		-- See `:help indent_blankline.txt`
+		config = function()
+			-- vim.opt.list = true
+			-- vim.opt.listchars:append 'eol:↴'
+
+			require("indent_blankline").setup({
+				char = "▏",
+				context_char = "▏",
+				show_current_context = true,
+				show_current_context_start = true,
+				-- show_trailing_blankline_indent = false,
+			})
 		end,
 	},
 
