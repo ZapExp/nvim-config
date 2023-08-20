@@ -5,12 +5,15 @@ return {
 		config = function()
 			require("config.mini")
 		end,
+		dependencies = {
+			{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
+		},
 	},
 
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require'colorizer'.setup()
+			require("colorizer").setup()
 		end,
 		event = { "BufReadPost", "BufNewFile" },
 	},

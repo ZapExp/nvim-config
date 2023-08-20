@@ -89,6 +89,11 @@ require("mini.comment").setup({
 		-- Define 'comment' textobject (like `dgc` - delete whole comment block)
 		textobject = "",
 	},
+	hooks = {
+		pre = function()
+			require("ts_context_commentstring.internal").update_commentstring({})
+		end,
+	},
 })
 
 -- Underline in current word
