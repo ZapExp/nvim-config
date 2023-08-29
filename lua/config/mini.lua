@@ -1,17 +1,17 @@
 -- -- Extra text objects
 -- require("mini.ai").setup()
 
--- Animations
-if not vim.g.neovide then
-	require("mini.animate").setup({
-		open = {
-			enable = false,
-		},
-		close = {
-			enable = false,
-		},
-	})
-end
+-- -- Animations
+-- if not vim.g.neovide then
+-- 	require("mini.animate").setup({
+-- 		open = {
+-- 			enable = false,
+-- 		},
+-- 		close = {
+-- 			enable = false,
+-- 		},
+-- 	})
+-- end
 
 -- Basic options
 require("mini.basics").setup({
