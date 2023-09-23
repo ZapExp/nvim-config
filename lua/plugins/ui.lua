@@ -7,7 +7,7 @@ return {
 			---@diagnostic disable-next-line: missing-fields
 			require("catppuccin").setup({
 				flavour = "macchiato", -- latte, frappe, macchiato, mocha
-				transparent_background = not vim.g.neovide,
+				-- transparent_background = not vim.g.neovide,
 				---@diagnostic disable-next-line: missing-fields
 				integrations = {
 					gitsigns = true,
