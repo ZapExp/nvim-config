@@ -68,6 +68,8 @@ local servers = {
 	emmet_ls = {},
 	prismals = {},
 	jsonls = {},
+	cssls = {},
+	html = {},
 
 	lua_ls = {
 		Lua = {
@@ -107,6 +109,11 @@ mason_lspconfig.setup_handlers({
 })
 
 require("lspconfig").hls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").ocamllsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })

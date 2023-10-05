@@ -9,7 +9,7 @@ return {
 		},
 		config = function()
 			require("config.lspconfig")
-			require("config.rust-tools")
+			require("config.rust_tools")
 		end,
 	},
 
@@ -46,7 +46,7 @@ return {
 		"jose-elias-alvarez/null-ls.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			require("config.null-ls")
+			require("config.null_ls")
 		end,
 	},
 

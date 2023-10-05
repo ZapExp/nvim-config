@@ -23,5 +23,7 @@ null_ls.setup({
 		format.rustywind,
 		format.rustfmt,
 		format.black,
+		format.ocamlformat,
 	},
 })
+
