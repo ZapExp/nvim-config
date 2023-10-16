@@ -24,6 +24,11 @@ return {
 						enabled = true,
 						style = "classic",
 					},
+					indent_blankline = {
+						enabled = true,
+						scope_color = "green",
+						colored_indent_levels = false,
+					},
 				},
 				custom_highlights = function(colors)
 					return {
@@ -35,23 +40,31 @@ return {
 		end,
 	},
 
-	{
-		-- Add indentation guides even on blank lines
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPost", "BufNewFile" },
-		-- Enable `lukas-reineke/indent-blankline.nvim`
-		-- See `:help indent_blankline.txt`
-		config = function()
-			-- vim.opt.list = true
-			-- vim.opt.listchars:append 'eol:↴'
+	-- {
+	-- 	-- Add indentation guides even on blank lines
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	event = { "BufReadPost", "BufNewFile" },
+	-- 	-- Enable `lukas-reineke/indent-blankline.nvim`
+	-- 	-- See `:help indent_blankline.txt`
+	-- 	config = function()
+	-- 		-- vim.opt.list = true
+	-- 		-- vim.opt.listchars:append 'eol:↴'
 
-			require("indent_blankline").setup({
-				char = "▏",
-				context_char = "▏",
-				show_current_context = true,
-				show_current_context_start = true,
-				-- show_trailing_blankline_indent = false,
-			})
+	-- 		require("indent_blankline").setup({
+	-- 			char = "▏",
+	-- 			context_char = "▏",
+	-- 			show_current_context = true,
+	-- 			show_current_context_start = true,
+	-- 			-- show_trailing_blankline_indent = false,
+	-- 		})
+	-- 	end,
+	-- },
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		config = function()
+			require("ibl").setup({})
 		end,
 	},
 
@@ -171,7 +184,7 @@ return {
 			local fgf = function(name)
 				---@type {foreground?:number}?
 				local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name })
-					or vim.api.nvim_get_hl_by_name(name, true)
+						or vim.api.nvim_get_hl_by_name(name, true)
 				local fg = hl and hl.fg or hl.foreground
 				return fg and { fg = string.format("#%06x", fg) }
 			end
