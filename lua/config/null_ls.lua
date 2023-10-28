@@ -17,7 +17,7 @@ null_ls.setup({
 		format.stylua,
 		format.prettierd.with({
 			extra_args = {
-				"--single-attribute-per-line",
+				-- "--single-attribute-per-line",
 			},
 		}),
 		format.rustywind,

@@ -68,15 +68,6 @@ local servers = {
 	emmet_ls = {},
 	prismals = {},
 	jsonls = {},
-	cssls = {},
-	html = {},
-
-	lua_ls = {
-		Lua = {
-			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
-		},
-	},
 }
 
 -- Setup neovim lua configuration
@@ -108,14 +99,30 @@ mason_lspconfig.setup_handlers({
 	end,
 })
 
-require("lspconfig").hls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+local manual_list = {
+	"cssls",
+	"html",
+	"hls"
+}
 
-require("lspconfig").ocamllsp.setup({
+local lspconfig = require("lspconfig")
+
+for _, language in ipairs(manual_list) do
+	lspconfig[language].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+end
+
+lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	settings = {
+		Lua = {
+			workspace = { checkThirdParty = false },
+			telemetry = { enable = false },
+		},
+	}
 })
 
 -- setup rust
