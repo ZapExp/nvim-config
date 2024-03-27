@@ -61,8 +61,8 @@ local servers = {
 	-- rust_analyzer = {},
 	-- pylsp = {},
 	-- hls = {},
-	cssls = {},
-	html = {},
+	-- cssls = {},
+	-- html = {},
 	pyright = {},
 	tsserver = {},
 	svelte = {},
@@ -70,12 +70,12 @@ local servers = {
 	emmet_ls = {},
 	prismals = {},
 	jsonls = {},
-	lua_ls = {
-		Lua = {
-			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
-		},
-	},
+	-- lua_ls = {
+	-- 	Lua = {
+	-- 		workspace = { checkThirdParty = false },
+	-- 		telemetry = { enable = false },
+	-- 	},
+	-- },
 }
 
 -- Setup neovim lua configuration
@@ -108,8 +108,8 @@ mason_lspconfig.setup_handlers({
 })
 
 local manual_list = {
-	-- 	"cssls",
-	-- 	"html",
+	"cssls",
+	"html",
 	-- 	"hls"
 }
 
@@ -122,16 +122,16 @@ for _, language in ipairs(manual_list) do
 	})
 end
 
--- lspconfig.lua_ls.setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	settings = {
--- 		Lua = {
--- 			workspace = { checkThirdParty = false },
--- 			telemetry = { enable = false },
--- 		},
--- 	}
--- })
+lspconfig.lua_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = {
+		Lua = {
+			workspace = { checkThirdParty = false },
+			telemetry = { enable = false },
+		},
+	},
+})
 
 -- setup rust
 local rt = require("rust-tools")
